@@ -4,7 +4,7 @@ Param(
 )
 $ext = (dir "$dir").Extension
 $file_name = (dir "$dir").BaseName
-$encoder = "h264_nvenc"
+$encoder = "libx264"
 if ($ext -eq '.webm') {
 $mp4_name = $dir -replace "$ext",'.mp4'
 ffmpeg.exe -y -i "$dir" -c:v $encoder -c:a aac $mp4_name
