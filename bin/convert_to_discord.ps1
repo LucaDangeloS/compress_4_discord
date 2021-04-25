@@ -11,7 +11,7 @@ ffmpeg.exe -y -i "$dir" -c:v $encoder -c:a aac $mp4_name
 } else {
 $mp4_name = $dir
 }
-$target_video_size_MB=7.8
+$target_video_size_MB=7.2
 $origin_duration_s = ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$mp4_name"
 $origin_audio_bitrate_kbit_s = ffprobe.exe -v error -pretty -show_streams -select_streams a "$mp4_name" | Select-string -Pattern "(?<=^bit_rate\=)\d*\.\d*"
 $origin_audio_bitrate_kbit_s = $origin_audio_bitrate_kbit_s -replace 'bit_rate=','' -replace ' Kbit/s',''
